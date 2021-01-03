@@ -1,9 +1,11 @@
-import Head from "next/head";
 import { AppProps } from "next/app";
+import Head from "next/head";
+import { ThemeProvider } from "theme-ui";
+import { theme } from "src/logic/styles";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>NextJS Blog</title>
         <link
@@ -14,6 +16,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <main>
         <Component {...pageProps} />
       </main>
-    </>
+    </ThemeProvider>
   );
 }
