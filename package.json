@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .js,.ts,.tsx"
   },
   "dependencies": {
+    "@emotion/styled": "^11.0.0",
     "@theme-ui/presets": "^0.3.5",
     "gray-matter": "^4.0.2",
     "next": "10.0.4",
@@ -23,6 +24,7 @@
     "@types/theme-ui": "^0.3.7",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
+    "babel-plugin-emotion": "^11.0.0",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
