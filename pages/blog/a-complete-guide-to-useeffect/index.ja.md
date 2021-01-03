@@ -1,5 +1,5 @@
 ---
-title: useEffect完全ガイド
+title: useEffectCompleteGuide
 date: '2019-03-09'
 spoiler: エフェクトはデータフローの一部
 ---
