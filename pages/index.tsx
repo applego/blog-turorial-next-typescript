@@ -1,10 +1,11 @@
 import { GetStaticProps } from "next";
+import styled from "@emotion/styled";
 
 export default function Home() {
   return (
-    <div>
-      <main>Welcome</main>
-    </div>
+    <Container>
+      <H2>Home</H2>
+    </Container>
   );
 }
 
@@ -13,3 +14,9 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {},
   };
 };
+
+const Container = styled.div`
+  background: yellow;
+`;
+
+const H2 = styled.h2``;
