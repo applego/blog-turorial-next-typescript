@@ -2,9 +2,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import * as path from "path";
 import * as fs from "fs";
 import matter from "gray-matter";
+import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from "next-mdx-remote/hydrate";
 
 interface Props {
-  content: string;
+  source: Parameters<hydrate>[0];
   data: PostData;
 }
 
@@ -14,11 +16,11 @@ interface PostData {
   spoiler: string;
 }
 
-export default function Post({ content, data }: Props) {
+export default function Post({ source, data }: Props) {
   return (
     <>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      {content}
+      {hydrate(source)}
     </>
   );
 }
@@ -36,8 +38,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params: { title } }) => {
   const { content, data } = getPostAll().find((m) => m.data.title === title);
+  const source = await renderToString(content);
   return {
-    props: { content, data },
+    props: { source, data },
   };
 };
 
