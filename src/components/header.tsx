@@ -1,13 +1,26 @@
 import { IconButton } from "theme-ui";
 import { IoMdSunny } from "react-icons/io";
+import { useToggleColorMode } from "src/logic/styles";
+import styled from "@emotion/styled";
 
 export function Header() {
+  const toggleColorMode = useToggleColorMode();
+
   return (
-    <div>
+    <Container>
       <h1>NextJS blog</h1>
-      <IconButton aria-label="Toggle dark mode">
+      <IconButton aria-label="Toggle dark mode" onClick={toggleColorMode}>
         <IoMdSunny size={28} />
       </IconButton>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: space-between;
+  background: yellow;
+  padding: 0 1rem;
+`;
