@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ThemeProvider } from "theme-ui";
 import { theme } from "src/logic/styles";
 import styled from "@emotion/styled";
+import { Header } from "src/components";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,6 +17,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <Container>
+        <Header />
         <main>
           <Component {...pageProps} />
         </main>
